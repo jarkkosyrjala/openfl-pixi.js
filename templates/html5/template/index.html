@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1, IE=edge">
+    <title>::APP_TITLE::</title>
+    <script type="text/javascript" src="pixi.dev.js"></script>
+
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+        body {
+            font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+            background-color: #42413C;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none; /* Disable selection/Copy of UIWebView */
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .container {
+            position:absolute;
+            top: 0px;
+            z-index:999999999;
+        }
+    </style>
+</head>
+<body>
+
+    ::if (LIB_OPENFL)::
+
+    <div id="haxe:jeash" style="background-color: #::WIN_FLASHBACKGROUND::; width: ::if (WIN_WIDTH == 0)::100%::else::::WIN_WIDTH::px::end::; height: ::if (WIN_HEIGHT == 0)::100%::else::::WIN_HEIGHT::px::end::" data-framerate="::WIN_FPS::"></div>
+
+    ::if DEBUG::<!-- script type="text/javascript" src="./webgl-debug.js"></script-->::end::
+
+    <!-- script>function winParameters () { return ::WIN_PARAMETERS::; }</script-->
+    <script id="haxe:jeash:script" type="text/javascript" src="./::APP_FILE::.js"></script>
+
+    ::else::
+
+    <script type="text/javascript" src="./::APP_FILE::.js"></script>
+
+    ::end::
+	
+</body>
+</html>
